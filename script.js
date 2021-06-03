@@ -1,4 +1,5 @@
-let words = ["axiom", "keyhole", "lucky", "disavow", "glyph", "vixen", "haikou"];
+let words = ["axiom", "exodus", "lucky", "disavow", "glyph", "vixen", "haikou"];
+let lives = 10;
 
 
 // global var
@@ -6,7 +7,9 @@ let selectedWord
 
 let answer = document.getElementById("answer");
 let hint = document.getElementById("hint")
-let reset = document.getElementById("reset")
+
+let wordEl = document.getElementById("word2")
+
 
 
 
@@ -72,91 +75,92 @@ btn23.addEventListener("click", clicked)
 btn24.addEventListener("click", clicked)
 btn25.addEventListener("click", clicked)
 
-// extra listerners
-reset.addEventListener("click", clickedR)
+// // extra listerners
+hint.addEventListener("click", hintDisplay)
 
+   
+     function hintDisplay ()  {
+    console.log(hintDisplay)
+     console.log(selectedWord)
+        if (selectedWord.toUpperCase() === "AXIOM"){
+         wordEl.innerHTML = "postulate or assumption is a statement ";
+        } else if (selectedWord.toUpperCase() === "LUCKY") {
+              wordEl.innerHTML = "having, bringing, or resulting from";
+        } else if (selectedWord.toUpperCase() === "EXODUS") {
+            wordEl.innerHTML = "the road out.";
+         } else if (selectedWord.toUpperCase() === "GLYPH") {
+             wordEl.innerHTML = "an elemental symbol within an agreed set of symbols";
+         }  else if (selectedWord.toUpperCase() === "VIXEN") {
+              wordEl.innerHTML = "a spirited or fierce woman";
+         } else if (selectedWord.toUpperCase() === "HAIKOU") {
+              wordEl.innerHTML = "a specific type of Japanese poem";
+         } else if (selectedWord.toUpperCase() === "DISAVOW") {
+            wordEl.innerHTML = "deny responsibility for : repudiate";
 
-
-let getRandomWord = function() {
-    return words[Math.floor(Math.random() * words.length)];
-
-};
-
-let init = function() {
-    let counter = '';
-    selectedWord = getRandomWord()
-    console.log(selectedWord)
-    for (let i = 0; i < selectedWord.length; i++) {
-        console.log("index of secectedWord " + i)
-            //this genrates dashes
-        counter += "<span id=" + i + " > _ </span>"
-        console.log("zero indexed dashes " + counter)
-
-
-    }
-    answer.innerHTML = counter;
-}
-
-
-init();
-
-
-
-function clicked(evt) {
-
-    let letter = evt.target.innerHTML
-    console.log(selectedWord.toUpperCase().includes(letter))
-    console.log(letter)
-    if (selectedWord.toUpperCase().includes(letter)) {
-        selectedWord.indexOf(letter)
-        let letterIndex = (selectedWord.toUpperCase().indexOf(letter))
-            // converts letterIndex form 1 to "1"
-        letterIndex = letterIndex + "";
-        console.log("this is letter index " + letterIndex)
-        document.getElementById(letterIndex).innerHTML = letter
-        console.log(letterIndex)
-
-
-
-
-    } else {
-
-        return console.log("Your guess is wrong " + letter) += response
-
-    }
+         }
 };
 
 
+	document.getElementById("reset").addEventListener("click", newPage)  
+    
+ function newPage () {
+		location.reload();
+		
+	};
 
 
 
 
 
+        let getRandomWord = function() {
+            return words[Math.floor(Math.random() * words.length)];
+
+        };
+
+        let init = function() {
+            let counter = '';
+            selectedWord = getRandomWord()
+            console.log(selectedWord)
+            for (let i = 0; i < selectedWord.length; i++) {
+                console.log("index of secectedWord " + i)
+                    //this genrates dashes
+                counter += "<span id=" + i + " > _ </span>"
+                console.log("zero indexed dashes " + counter)
+
+
+            }
+            answer.innerHTML = counter;
+        }
+
+
+        init();
+
+
+
+        function clicked(evt) {
+
+            let letter = evt.target.innerHTML
+            console.log(selectedWord.toUpperCase().includes(letter))
+            console.log(letter)
+            if (selectedWord.toUpperCase().includes(letter)) {
+                selectedWord.indexOf(letter)
+                let letterIndex = (selectedWord.toUpperCase().indexOf(letter))
+                    // converts letterIndex form 1 to "1"
+                letterIndex = letterIndex + "";
+                console.log("this is letter index " + letterIndex)
+                document.getElementById(letterIndex).innerHTML = letter
+                console.log(letterIndex)
+                
 
 
 
 
+            } else {
+
+                return alert("Your guess is wrong " + letter) += response
+
+            }
+        };
 
 
-
-
-
-
-// let getRandomWord = function() {
-//     return words[Math.floor(Math.random() * words.length)];
-
-// };
-
-// let init = function() {
-//     let counter = '';
-//     selectedWord = getRandomWord()
-//     console.log(selectedWord);
-//     for (let i = 0; i < selectedWord.length; i++) {
-//         counter += ' _ '
-
-//     }
-//     answer.innerHTML = counter
-// }
-
-
-// init();
+         

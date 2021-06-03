@@ -1,0 +1,46 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url("https://www.verywellmind.com/thmb/udD6Gb3w5MPvGPPoNJPnILUVucQ=/3125x1758/smart/filters:no_upscale()/meditation-4157199_round2_standardsizing-7f47dee543b74e3282f6604e8e9ef126.png");
+    background-size: 100% 100%;
+    background-repeat: repeat;
+    font-family: "Permanent Marker", cursive;
+    position: relative;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper,
+.button-wrapper {
+    text-align: center;
+    margin: 20px;
+}
+
+button {
+    transition: 0.2s linear;
+    outline: none;
+    border-style: none;
+    background-color: darkgray;
+    color: white;
+    border-radius: 7px;
+}
+
+button:hover,
+button:focus {
+    background-color: green;
+    outline: none;
+    color: white;
+}
+
+#word2 {
+    color: white;
+}
